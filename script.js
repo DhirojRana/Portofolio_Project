@@ -31,68 +31,127 @@
     applyDark();
   });
 
-  // HERO CANVAS — floating particle network
+  // HERO CANVAS — drifting sunset stars
   const canvas = document.getElementById('heroCanvas');
   const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
+  let W, H, stars = [], mouse = { x: -999, y: -999 };
 
   function resize() {
     W = canvas.width = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
   }
   resize();
-  window.addEventListener('resize', () => { resize(); particles = []; init(); });
+  window.addEventListener('resize', () => { resize(); stars = []; init(); });
+
+  // Track mouse over the hero
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  canvas.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
+
+  // Draw a crisp 4-point star ✦
+  function drawStar(x, y, outerR, innerR, rotation) {
+    const pts = 4;
+    ctx.beginPath();
+    for (let i = 0; i < pts * 2; i++) {
+      const angle = (i * Math.PI) / pts + rotation;
+      const r = i % 2 === 0 ? outerR : innerR;
+      i === 0
+        ? ctx.moveTo(x + Math.cos(angle) * r, y + Math.sin(angle) * r)
+        : ctx.lineTo(x + Math.cos(angle) * r, y + Math.sin(angle) * r);
+    }
+    ctx.closePath();
+  }
+
+  class Star {
+    constructor() { this.reset(true); }
+
+    reset(rand) {
+      this.x   = rand ? Math.random() * W : (Math.random() > 0.5 ? -20 : W + 20);
+      this.y   = rand ? Math.random() * H : Math.random() * H;
+      this.outerR     = Math.random() * 6 + 5;      // 5–11px — noticeably bigger
+      this.innerR     = this.outerR * 0.32;
+      this.vx         = (Math.random() - 0.5) * 0.30;
+      this.vy         = (Math.random() - 0.5) * 0.30;
+      this.rotation   = Math.random() * Math.PI;
+      this.rotSpeed   = (Math.random() - 0.5) * 0.007;
+      this.baseOpacity     = Math.random() * 0.55 + 0.25;
+      this.twinkleSpeed    = Math.random() * 0.03 + 0.01;
+      this.twinkleOffset   = Math.random() * Math.PI * 2;
+      this.sparkle    = 0;   // 0–1, bursts on hover
+      this.sparkleDecay = 0;
+    }
+
+    update(t) {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.rotation += this.rotSpeed;
+
+      // Twinkle
+      const twinkle = 0.55 + 0.45 * Math.sin(t * this.twinkleSpeed + this.twinkleOffset);
+      this.currentOpacity = this.baseOpacity * twinkle;
+
+      // Hover proximity sparkle
+      const dx = this.x - mouse.x;
+      const dy = this.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const radius = 90;
+      if (dist < radius) {
+        this.sparkle = Math.max(this.sparkle, 1 - dist / radius);
+        this.sparkleDecay = 0.025;
+      }
+      if (this.sparkle > 0) {
+        this.sparkle = Math.max(0, this.sparkle - this.sparkleDecay);
+        this.rotSpeed = (Math.random() - 0.5) * 0.04; // spin faster while sparkling
+      }
+
+      if (this.x < -30 || this.x > W + 30 || this.y < -30 || this.y > H + 30) this.reset(false);
+    }
+
+    draw() {
+      const boosted   = this.currentOpacity + this.sparkle * 0.6;
+      const sizeBoost = 1 + this.sparkle * 0.7;
+      const OR = this.outerR * sizeBoost;
+      const IR = this.innerR * sizeBoost;
+
+      // Pick colour: warm white-gold core, orange rim
+      // Core star: near-white with warm tint
+      const coreAlpha = Math.min(1, boosted);
+      // Glow: rich amber-orange
+      const glowAlpha = Math.min(0.9, boosted * 0.85);
+
+      ctx.save();
+
+      // Outer glow — amber
+      ctx.shadowColor  = `rgba(255, 140, 40, ${glowAlpha})`;
+      ctx.shadowBlur   = OR * (3 + this.sparkle * 5);
+      ctx.fillStyle    = `rgba(255, 220, 130, ${coreAlpha})`;
+      drawStar(this.x, this.y, OR, IR, this.rotation);
+      ctx.fill();
+
+      // Inner bright core — almost white
+      ctx.shadowBlur  = OR * 1.2;
+      ctx.shadowColor = `rgba(255, 255, 210, ${coreAlpha})`;
+      ctx.fillStyle   = `rgba(255, 252, 220, ${Math.min(1, coreAlpha + 0.2)})`;
+      drawStar(this.x, this.y, OR * 0.45, IR * 0.45, this.rotation);
+      ctx.fill();
+
+      ctx.restore();
+    }
+  }
 
   function init() {
-    for (let i = 0; i < 55; i++) particles.push(new Particle());
+    for (let i = 0; i < 52; i++) stars.push(new Star());
   }
-
-  class Particle {
-    constructor() { this.reset(true); }
-    reset(rand) {
-      this.x = rand ? Math.random() * W : (Math.random() > 0.5 ? -10 : W + 10);
-      this.y = Math.random() * H;
-      this.size = Math.random() * 2 + 0.5;
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
-      this.opacity = Math.random() * 0.55 + 0.1;
-    }
-    update() {
-      this.x += this.vx; this.y += this.vy;
-      if (this.x < -20 || this.x > W + 20 || this.y < -20 || this.y > H + 20) this.reset(false);
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(79,70,229,${this.opacity})`;
-      ctx.fill();
-    }
-  }
-
   init();
 
-  function drawConnections() {
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 110) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(79,70,229,${0.07 * (1 - d / 110)})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
-      }
-    }
-  }
-
+  let tick = 0;
   function animate() {
     ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => { p.update(); p.draw(); });
-    drawConnections();
+    tick++;
+    stars.forEach(s => { s.update(tick); s.draw(); });
     requestAnimationFrame(animate);
   }
   animate();
