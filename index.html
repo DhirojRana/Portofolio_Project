@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhiroj Rana Magar — Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="progress-bar"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">D<span>.</span>Rana</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-canvas-wrap">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-badge">Open to Internships &amp; Projects</span>
+
+      <h1 class="hero-name">
+        Dhiroj<br>
+        Rana <em>Magar</em>
+      </h1>
+
+      <p class="hero-title">
+        Building clean, responsive, and user-friendly web experiences.<br>
+        Web Developer &amp; .NET Learner based in Nepal.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          View Projects
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="reveal">
+      <span class="section-label">About Me</span>
+      <h2 class="section-title">BCA Student &amp;<br>Aspiring Developer</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-avatar-wrap reveal reveal-delay-1">
+        <div class="avatar-container" style="position: relative;">
+          <div class="avatar-box">
+            <span class="avatar-initials">DR</span>
+            <div class="avatar-shape"></div>
+          </div>
+          <div class="avatar-tag">
+            BCA Student<br>
+            Tribhuvan University
+          </div>
+        </div>
+        <div class="about-milestones">
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <span>Bachelor in Computer Application</span>
+          </div>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <span>Hetauda, Nepal</span>
+          </div>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <span>November 30, 2007 · Age 18</span>
+          </div>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <span>Currently learning .NET &amp; C#</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text reveal reveal-delay-2">
+        <p>
+          I am a BCA student passionate about web and software development. I focus on creating clean, responsive, and
+          user-friendly web experiences while continuously improving my skills in HTML, CSS, JavaScript, jQuery, AJAX,
+          C#, and .NET.
+        </p>
+        <p>
+          I enjoy building practical projects that demonstrate my learning and problem-solving abilities. From my first
+          HTML/CSS project through The Odin Project curriculum to building interactive Python applications, each project
+          pushes me to think creatively and write better code.
+        </p>
+        <p>
+          My goal is to grow into a full-stack developer — bridging clean frontend design with robust backend
+          architecture. I am actively exploring the .NET ecosystem with C# to build production-ready web applications.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Projects Built</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Certificates</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">2+</div>
+            <div class="stat-label">Yrs Learning</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="reveal">
+      <span class="section-label">Skills</span>
+      <h2 class="section-title">Technologies &amp;<br>Tools I Work With</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-icon"></div>
+        <div class="skill-category">Frontend</div>
+        <div class="skill-name">Web Development</div>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">jQuery</span>
+          <span class="skill-tag">AJAX</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-icon"></div>
+        <div class="skill-category">Backend / Programming</div>
+        <div class="skill-name">C# &amp; .NET</div>
+        <div class="skill-tags">
+          <span class="skill-tag">C# Basics</span>
+          <span class="skill-tag">.NET (Learning)</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">OOP</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-3">
+        <div class="skill-icon"></div>
+        <div class="skill-category">UI / UX Design</div>
+        <div class="skill-name">Design &amp; Prototyping</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">UX Principles</span>
+          <span class="skill-tag">Wireframing</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-4">
+        <div class="skill-icon"></div>
+        <div class="skill-category">Tools &amp; Workflow</div>
+        <div class="skill-name">Dev Environment</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Terminal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="projects-header reveal">
+      <div>
+        <span class="section-label">Projects</span>
+        <h2 class="section-title">Work I've Built</h2>
+      </div>
+      <a href="https://github.com/DhirojRana" target="_blank" rel="noopener" class="github-all">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+        All Repositories
+      </a>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-header">
+          <span class="project-num">01</span>
+          <div class="project-links">
+            <a href="https://github.com/DhirojRana/Odin-Project--1" target="_blank" rel="noopener" class="project-link"
+              title="View on GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Odin Project — No.1</h3>
+          <p class="project-desc">My first real project built while following The Odin Project curriculum. Demonstrates
+            HTML and CSS fundamentals including semantic markup, layout techniques, and foundational styling principles
+            that form the backbone of modern web development.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-header">
+          <span class="project-num">02</span>
+          <div class="project-links">
+            <a href="https://github.com/DhirojRana/ProjectHangMan" target="_blank" rel="noopener" class="project-link"
+              title="View on GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Hangman Game</h3>
+          <p class="project-desc">A classic Hangman game built in Python showcasing core programming logic — loops,
+            conditionals, string manipulation, and user input handling — with a clean command-line interface that
+            demonstrates strong problem-solving fundamentals.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">CLI</span>
+            <span class="tech-tag">Game Logic</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-3">
+        <div class="project-header">
+          <span class="project-num">03</span>
+          <div class="project-links">
+            <a href="https://github.com/DhirojRana/Project2" target="_blank" rel="noopener" class="project-link"
+              title="View on GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Static Shopping Website</h3>
+          <p class="project-desc">A beginner static shopping site showcasing product layout, navigation structure, and
+            UI design principles. Demonstrates practical HTML and CSS skills including grid layout, hover states, and
+            responsive techniques applied to a real-world interface.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-4">
+        <div class="project-header">
+          <span class="project-num">04</span>
+          <div class="project-links">
+            <a href="https://github.com/DhirojRana/NumberGuessingGame" target="_blank" rel="noopener"
+              class="project-link" title="View on GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Number Guessing Game</h3>
+          <p class="project-desc">A fun JavaScript number guessing game reinforcing core fundamentals: random number
+            generation, loop control, input validation, and user feedback design. Clean, readable code that showcases
+            intentional structure and good beginner practices.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Random</span>
+            <span class="tech-tag">Game Logic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey">
+    <div class="reveal">
+      <span class="section-label">Learning Journey</span>
+      <h2 class="section-title">Milestones &amp;<br>Growth Path</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Foundation</div>
+        <div class="timeline-title">HTML &amp; CSS Foundations — The Odin Project</div>
+        <div class="timeline-desc">Started with structured web fundamentals through The Odin Project curriculum. Built
+          my first real project, establishing a strong base of semantic HTML and modern CSS knowledge.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Frontend Expansion</div>
+        <div class="timeline-title">JavaScript, jQuery &amp; AJAX</div>
+        <div class="timeline-desc">Learned dynamic programming, DOM manipulation, and asynchronous web requests. Gained
+          the ability to build interactive, data-driven web interfaces beyond static pages.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Programming Logic</div>
+        <div class="timeline-title">Python — Core Programming Concepts</div>
+        <div class="timeline-desc">Studied Python to strengthen programming fundamentals: algorithms, data structures,
+          OOP, and applied project building. Built Hangman and Number Guessing games to reinforce real learning.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Backend Exploration</div>
+        <div class="timeline-title">C# Basics &amp; .NET Introduction</div>
+        <div class="timeline-desc">Transitioned into statically-typed backend development. Learned C# syntax,
+          object-oriented programming patterns, and began exploring the .NET ecosystem for web application development.
+        </div>
+      </div>
+
+      <div class="timeline-item active">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Current — 2025</div>
+        <div class="timeline-title">Deep Dive into .NET Framework with C#</div>
+        <div class="timeline-desc">Actively building with ASP.NET, studying MVC architecture patterns, and applying
+          full-stack concepts. Working towards production-ready applications with real backend logic and database
+          integration.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Ongoing</div>
+        <div class="timeline-title">UI/UX &amp; Responsive Design Refinement</div>
+        <div class="timeline-desc">Continuously improving design skills through Figma, studying UX principles and
+          accessibility guidelines, and building increasingly polished, device-agnostic web interfaces.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="reveal">
+      <span class="section-label">Certificates</span>
+      <h2 class="section-title">Learning &amp;<br>Achievements</h2>
+    </div>
+
+    <div class="certs-grid">
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-issuer-badge">IBM</div>
+        <h3 class="cert-title">Introduction to Web Development with HTML5, CSS3, and JavaScript</h3>
+        <p class="cert-detail">Verified certification from IBM covering the complete foundational web stack — semantic
+          HTML, modern CSS layouts, and core JavaScript programming. Issued through the IBM Skills Network.</p>
+        <span class="cert-verify">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Verified Certificate
+        </span>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-issuer-badge">Python</div>
+        <h3 class="cert-title">Python Programming — Online Course Completion</h3>
+        <p class="cert-detail">Completed a comprehensive Python programming course covering variables, data types,
+          control flow, functions, file I/O, and introductory OOP. Reinforced with hands-on mini-projects including the
+          Hangman and Number Guessing game.</p>
+        <span class="cert-verify">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Course Completed
+        </span>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-issuer-badge" style="background: #e8871a;">AWS</div>
+        <h3 class="cert-title">AWS Developer Conference — Online Attendee</h3>
+        <p class="cert-detail">Attended an AWS online developer conference, gaining exposure to cloud architecture, AWS
+          services for web applications, serverless computing, and modern DevOps workflows. Experience connecting with
+          the global cloud-native community.</p>
+        <span class="cert-verify">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Attendance Confirmed
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="reveal">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">Let's Work<br>Together</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal reveal-delay-1">
+        <h3>Open to Opportunities</h3>
+        <p>
+          I'm currently looking for internships, freelance projects, and collaborative opportunities. Whether you have a
+          project idea, want to offer mentorship, or simply want to connect — I would love to hear from you.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/DhirojRana" target="_blank" rel="noopener" class="social-link">
+            <div class="social-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">GitHub</div>
+              <div style="font-size:0.76rem; color:var(--ink3);">@DhirojRana</div>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/dhiroj-rana-5ab02b2a7/" target="_blank" rel="noopener"
+            class="social-link">
+            <div class="social-icon" style="color: #0077b5;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">LinkedIn</div>
+              <div style="font-size:0.76rem; color:var(--ink3);">dhiroj-rana-5ab02b2a7</div>
+            </div>
+          </a>
+
+          <a href="/cdn-cgi/l/email-protection#d4b0bcbda6bbbea6b5bab594b3b9b5bdb8fab7bbb9" class="social-link">
+            <div class="social-icon" style="color: var(--accent-vivid);">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">Email</div>
+              <div style="font-size:0.76rem; color:var(--ink3);">Send me a message</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="contactName" placeholder="John Smith" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="contactEmail" placeholder="john@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="contactMsg" placeholder="Tell me about your project or opportunity..."></textarea>
+          </div>
+          <button class="btn btn-primary form-submit" onclick="handleSubmit()">
+            Send Message
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+          <div class="form-success" id="formSuccess">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Thanks! Message received. I will get back to you shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-copy">
+      © 2025 <strong>Dhiroj Rana Magar</strong>. Crafted with care in Nepal
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/DhirojRana" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/dhiroj-rana-5ab02b2a7/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#hero">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- DARK MODE TOGGLE -->
+  <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+
+  <script src="script.js"></script>
