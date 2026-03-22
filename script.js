@@ -16,19 +16,22 @@
     a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
   });
 
-  // DARK MODE
-  const darkToggle = document.getElementById('darkToggle');
-  let savedDark = localStorage.getItem('dark');
-  let dark = savedDark !== null ? savedDark === 'true' : true;
-  function applyDark() {
-    document.documentElement.classList.toggle('dark', dark);
-    darkToggle.textContent = dark ? '☀️' : '🌙';
+
+
+  // SEASON TOGGLE (Autumn <-> Winter)
+  const seasonToggle = document.getElementById('seasonToggle');
+  let savedSeason = localStorage.getItem('season') || 'autumn';
+  let isWinter = savedSeason === 'winter';
+  function applySeason() {
+    document.documentElement.classList.toggle('winter', isWinter);
+    seasonToggle.textContent = isWinter ? '\uD83C\uDF42' : '\u2744\uFE0F';
+    seasonToggle.setAttribute('data-tooltip', isWinter ? 'Switch to Autumn' : 'Switch to Winter');
   }
-  applyDark();
-  darkToggle.addEventListener('click', () => {
-    dark = !dark;
-    localStorage.setItem('dark', dark);
-    applyDark();
+  applySeason();
+  seasonToggle.addEventListener('click', () => {
+    isWinter = !isWinter;
+    localStorage.setItem('season', isWinter ? 'winter' : 'autumn');
+    applySeason();
   });
 
   // HERO CANVAS — drifting sunset stars
@@ -111,32 +114,46 @@
     }
 
     draw() {
+      const winter = document.documentElement.classList.contains('winter');
       const boosted   = this.currentOpacity + this.sparkle * 0.6;
       const sizeBoost = 1 + this.sparkle * 0.7;
       const OR = this.outerR * sizeBoost;
       const IR = this.innerR * sizeBoost;
 
-      // Pick colour: warm white-gold core, orange rim
-      // Core star: near-white with warm tint
       const coreAlpha = Math.min(1, boosted);
-      // Glow: rich amber-orange
       const glowAlpha = Math.min(0.9, boosted * 0.85);
 
       ctx.save();
 
-      // Outer glow — amber
-      ctx.shadowColor  = `rgba(255, 140, 40, ${glowAlpha})`;
-      ctx.shadowBlur   = OR * (3 + this.sparkle * 5);
-      ctx.fillStyle    = `rgba(255, 220, 130, ${coreAlpha})`;
-      drawStar(this.x, this.y, OR, IR, this.rotation);
-      ctx.fill();
+      if (winter) {
+        // Winter: icy blue / silver glow
+        ctx.shadowColor  = `rgba(126, 210, 240, ${glowAlpha})`;
+        ctx.shadowBlur   = OR * (3 + this.sparkle * 5);
+        ctx.fillStyle    = `rgba(180, 230, 255, ${coreAlpha})`;
+        drawStar(this.x, this.y, OR, IR, this.rotation);
+        ctx.fill();
 
-      // Inner bright core — almost white
-      ctx.shadowBlur  = OR * 1.2;
-      ctx.shadowColor = `rgba(255, 255, 210, ${coreAlpha})`;
-      ctx.fillStyle   = `rgba(255, 252, 220, ${Math.min(1, coreAlpha + 0.2)})`;
-      drawStar(this.x, this.y, OR * 0.45, IR * 0.45, this.rotation);
-      ctx.fill();
+        // Inner bright core — almost pure white
+        ctx.shadowBlur  = OR * 1.2;
+        ctx.shadowColor = `rgba(220, 245, 255, ${coreAlpha})`;
+        ctx.fillStyle   = `rgba(240, 252, 255, ${Math.min(1, coreAlpha + 0.2)})`;
+        drawStar(this.x, this.y, OR * 0.45, IR * 0.45, this.rotation);
+        ctx.fill();
+      } else {
+        // Autumn: warm amber-gold glow (original)
+        ctx.shadowColor  = `rgba(255, 140, 40, ${glowAlpha})`;
+        ctx.shadowBlur   = OR * (3 + this.sparkle * 5);
+        ctx.fillStyle    = `rgba(255, 220, 130, ${coreAlpha})`;
+        drawStar(this.x, this.y, OR, IR, this.rotation);
+        ctx.fill();
+
+        // Inner bright core — almost white
+        ctx.shadowBlur  = OR * 1.2;
+        ctx.shadowColor = `rgba(255, 255, 210, ${coreAlpha})`;
+        ctx.fillStyle   = `rgba(255, 252, 220, ${Math.min(1, coreAlpha + 0.2)})`;
+        drawStar(this.x, this.y, OR * 0.45, IR * 0.45, this.rotation);
+        ctx.fill();
+      }
 
       ctx.restore();
     }
