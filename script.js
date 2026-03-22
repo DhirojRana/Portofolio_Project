@@ -43,8 +43,15 @@
     W = canvas.width = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
   }
-  resize();
-  window.addEventListener('resize', () => { resize(); stars = []; init(); });
+  function init() {
+    resize();
+    stars = [];
+    for (let i = 0; i < 45; i++) {
+      stars.push(new Star());
+    }
+  }
+  init();
+  window.addEventListener('resize', () => { init(); });
 
   // Track mouse over the hero
   canvas.addEventListener('mousemove', e => {
